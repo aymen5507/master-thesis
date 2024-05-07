@@ -1,0 +1,68 @@
+PPO-Reach-Gazebo-v0:
+  policy: "MlpPolicy"
+  policy_kwargs:
+    net_arch: [128, 64]
+  n_steps: 2048
+  batch_size: 512
+  gamma: 0.99
+  learning_rate: 0.0002
+  ent_coef: 0.1
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  gae_lambda: 0.95
+  clip_range: 0.2
+  clip_range_vf: None
+  n_epochs: 10
+  target_kl: 0.01
+  tensorboard_log: "/path/to/tensorboard_logs/"
+  verbose: 1
+
+PPO-Reach-ColorImage-Gazebo-v0:
+  policy: "CnnPolicy"
+  policy_kwargs:
+    net_arch: [128, 128]
+  n_steps: 2048
+  batch_size: 32
+  gamma: 0.99
+  learning_rate: 0.0002
+  ent_coef: 0.1
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  gae_lambda: 0.95
+  clip_range: 0.2
+  clip_range_vf: None
+  n_epochs: 10
+  target_kl: 0.01
+  tensorboard_log: "/path/to/tensorboard_logs/"
+  verbose: 1
+
+PPO-Reach-Octree-Gazebo-v0:
+  policy: "OctreeCnnPolicy"
+  policy_kwargs:
+    features_extractor_kwargs:
+      depth: 4
+      full_depth: 2
+      channels_in: 4
+      channel_multiplier: 8
+      full_depth_conv1d: True
+      full_depth_channels: 2
+      features_dim: 64
+      aux_obs_dim: 0
+      fast_conv: True
+      batch_normalization: False
+      bn_eps: 0.00001
+      bn_momentum: 0.01
+  n_steps: 2048
+  batch_size: 32
+  gamma: 0.99
+  learning_rate: 0.0002
+  ent_coef: 0.1
+  vf_coef: 0.5
+  max_grad_norm: 0.5
+  gae_lambda: 0.95
+  clip_range: 0.2
+  clip_range_vf: None
+  n_epochs: 10
+  target_kl: 0.01
+  tensorboard_log: "/path/to/tensorboard_logs/"
+  verbose: 1
